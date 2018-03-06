@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
 using Sunricher.Wifi.Api;
 
 namespace Sunricher.Wifi.CommandLine
@@ -9,13 +10,32 @@ namespace Sunricher.Wifi.CommandLine
 		private static void Main(String[] args)
 		{
 			var messagesProvider = new MessagesProvider(new MessagesGenerator());
-			var packetData = messagesProvider.SetBrightness(42);
+			var random = new Random();
 
-			Console.WriteLine(DebugHelper.GetByteArrayHexString(packetData));
-
-			using (var client = new TcpClient("192.168.12.133", ApiConstants.TcpPort))
+			using (var client = new SunricherTcpClient("192.168.12.133", ApiConstants.TcpPort))
 			{
-				client.GetStream().Write(packetData, 0, 12);
+				var cts = new CancellationTokenSource();
+				var ct = cts.Token;
+				var task = Task.Run(() =>
+				{
+					client.SendMessage(messagesProvider.PowerOn());
+					
+					while (true)
+					{
+						if (ct.IsCancellationRequested)
+							break;
+
+						client.SendMessage(messagesProvider.SetR((Byte) random.Next(0, 100)));
+						client.SendMessage(messagesProvider.SetG((Byte) random.Next(0, 100)));
+						client.SendMessage(messagesProvider.SetB((Byte) random.Next(0, 100)));
+						client.SendMessage(messagesProvider.SetBrightness((Byte) random.Next(0, 255)));
+						Thread.Sleep(1000);
+					}
+				}, ct);
+
+				Console.ReadKey();
+				cts.Cancel();
+				task.Wait(TimeSpan.FromSeconds(10));
 			}
 		}
 	}
