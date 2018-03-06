@@ -8,9 +8,9 @@ namespace Sunricher.Wifi.Api
 	{
 		public static IEnumerable<Byte> EmptyRooms => new Byte[] { };
 
-		public MessagesProvider(IMessagesComposer messagesComposer)
+		public MessagesProvider(IMessagesGenerator messagesGenerator)
 		{
-			_messagesComposer = messagesComposer;
+			_messagesGenerator = messagesGenerator;
 			Rooms = EmptyRooms.ToArray();
 		}
 
@@ -51,7 +51,7 @@ namespace Sunricher.Wifi.Api
 			if (data.Length != 3)
 				throw new ArgumentException("There must be exactly three bytes in the data array.");
 
-			return _messagesComposer.CreateMessage(Rooms, data[0], data[1], data[2]);
+			return _messagesGenerator.CreateMessage(Rooms, data[0], data[1], data[2]);
 		}
 
 		private Byte[] CreateMessageFromTwoByteConstant(Byte[] constant, Byte value)
@@ -59,9 +59,9 @@ namespace Sunricher.Wifi.Api
 			if (constant.Length != 2)
 				throw new ArgumentException("There must be exactly two bytes in the data array.");
 
-			return _messagesComposer.CreateMessage(Rooms, constant[0], constant[1], value);
+			return _messagesGenerator.CreateMessage(Rooms, constant[0], constant[1], value);
 		}
 
-		private readonly IMessagesComposer _messagesComposer;
+		private readonly IMessagesGenerator _messagesGenerator;
 	}
 }

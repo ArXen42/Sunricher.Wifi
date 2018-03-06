@@ -6,7 +6,7 @@ namespace Sunricher.Wifi.Api
 	/// <summary>
 	///     Provides methods to generate arbitrary messages which can be sent to WiFi-to-RF device (for example, SR-2818WiN).
 	/// </summary>
-	public interface IMessagesComposer
+	public interface IMessagesGenerator
 	{
 		/// <summary>
 		///     Generates packet data which can be sent to WiFi-to-RF device (for example, SR-2818WiN). 

@@ -8,7 +8,7 @@ namespace Sunricher.Wifi.CommandLine
 	{
 		private static void Main(String[] args)
 		{
-			var messagesProvider = new MessagesProvider(new MessagesComposer());
+			var messagesProvider = new MessagesProvider(new MessagesGenerator());
 			var packetData = messagesProvider.SetBrightness(42);
 
 			Console.WriteLine(DebugHelper.GetByteArrayHexString(packetData));

@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Sunricher.Wifi.Api
 {
-	public class MessagesComposer : IMessagesComposer
+	public class MessagesGenerator : IMessagesGenerator
 	{
 		public Byte[] CreateMessage(IEnumerable<Byte> rooms, Byte category, Byte channel, Byte value)
 		{
