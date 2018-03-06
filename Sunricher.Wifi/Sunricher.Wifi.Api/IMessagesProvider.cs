@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sunricher.Wifi.Api
 {
@@ -8,10 +9,15 @@ namespace Sunricher.Wifi.Api
 	public interface IMessagesProvider
 	{
 		/// <summary>
+		///     Collection of rooms numbers. Initially empty in default implementation.
+		/// </summary>
+		IEnumerable<Byte> Rooms { get; set; }
+
+		/// <summary>
 		///     Returns message to power on LED.
 		/// </summary>
 		Byte[] PowerOn();
-		
+
 		/// <summary>
 		///     Returns message to power off LED.
 		/// </summary>
@@ -31,7 +37,7 @@ namespace Sunricher.Wifi.Api
 		///     Returns message to set LED blue channel
 		/// </summary>
 		Byte[] SetB(Byte value);
-		
+
 		/// <summary>
 		///     Returns message to set LED brightness without changing color.
 		/// </summary>
