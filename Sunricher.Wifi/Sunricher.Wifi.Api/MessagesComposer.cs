@@ -4,13 +4,13 @@ using System.Globalization;
 
 namespace Sunricher.Wifi.Api
 {
-	public class ControlPacketsDataProvider : IControlPacketsDataProvider
+	public class MessagesComposer : IMessagesComposer
 	{
-		public Byte[] ComposeMessage(IEnumerable<Byte> rooms, Byte category, Byte channel, Byte value)
+		public Byte[] CreateMessage(IEnumerable<Byte> rooms, Byte category, Byte channel, Byte value)
 		{
 			var result = new Byte[12];
 
-			// Bytes 0..4 used as remote identifier. It seems like only 0x55 byte matters.
+			// Bytes 0..4 are used as remote identifier. It seems like only the 0x55 byte matters.
 			// Android app generates that identifier using IMEI.
 			result[0] = 0x55;
 			result[1] = 0x00;
@@ -28,15 +28,7 @@ namespace Sunricher.Wifi.Api
 			return result;
 		}
 
-		public Byte[] ComposeMessage(IEnumerable<Byte> rooms, Byte[] constant)
-		{
-			if (constant.Length != 3)
-				throw new ArgumentException("Constant must be three bytes from ApiConstants.");
-
-			return ComposeMessage(rooms, constant[0], constant[1], constant[2]);
-		}
-		
-		private Byte GetRoomByte(IEnumerable<Byte> rooms)
+		public Byte GetRoomByte(IEnumerable<Byte> rooms)
 		{
 			Byte result = 0;
 			foreach (Byte room in rooms)
@@ -44,7 +36,7 @@ namespace Sunricher.Wifi.Api
 				if (room <= 0 || room > 8)
 					throw new ArgumentException("Room numbers must be in range 1..8.");
 
-				result = Byte.Parse((result | (1 << room - 1)).ToString("X"), NumberStyles.HexNumber);
+				result = (Byte) (result | (1 << room - 1));
 			}
 
 			return result;

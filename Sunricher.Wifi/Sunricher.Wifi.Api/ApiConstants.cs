@@ -2,11 +2,14 @@
 
 namespace Sunricher.Wifi.Api
 {
+	/// <summary>
+	///     Constants from Sunricher android application.
+	/// </summary>
 	public static class ApiConstants
 	{
 		public static Byte[] DataOff = {0x2, 0x12, 0xA9};
 		public static Byte[] DataOn = {0x2, 0x12, 0xAB};
-		public static Byte[] DataDimWhite = {0x8, 0x3A, 0x0};
+
 		public static Byte[] DataRoom1Off = {0x2, 0xA, 0x92};
 		public static Byte[] DataRoom1On = {0x2, 0xA, 0x93};
 		public static Byte[] DataRoom2Off = {0x2, 0xA, 0x95};
@@ -23,6 +26,58 @@ namespace Sunricher.Wifi.Api
 		public static Byte[] DataRoom7On = {0x2, 0xA, 0xA5};
 		public static Byte[] DataRoom8Off = {0x2, 0xA, 0xA7};
 		public static Byte[] DataRoom8On = {0x2, 0xA, 0xA8};
+
+		public static Byte[] DataCdwBrightnessSeekbar = {0x8, 0x33};
+		public static Byte[] DataRgbBrightnessSeekbar = {0x8, 0x23};
+
+		public static Byte[] DataCircleCdw = {0x8, 0x36};
+		public static Byte[] DataCircleDim = {0x8, 0x38};
+		public static Byte[] DataCircleRgb = {0x1, 0x1};
+
+		public static Byte[] DataCurtainOff = {0x2, 0x80, 0x1};
+		public static Byte[] DataCurtainOn = {0x2, 0x80, 0x2};
+
+		public static Byte[] DataFanOff = {0x2, 0x83, 0x1};
+		public static Byte[] DataFanOn = {0x2, 0x83, 0x2};
+		public static Byte[] DataFanSeekbar = {0x8, 0x82};
+
+		public static Byte[] DataLearn = {0x9, 0x37, 0x1};
+		public static Byte[] DataLearnRoom = {0x1, 0x1, 0x1};
+
+		public static Byte[] DataRgbRSeekbar = {0x8, 0x48};
+		public static Byte[] DataRgbBSeekbar = {0x8, 0x4A};
+		public static Byte[] DataRgbGSeekbar = {0x8, 0x49};
+
+		public static Byte[] DataRgbLongclickA1 = {0x2, 0x2, 0x81};
+		public static Byte[] DataRgbLongclickA2 = {0x2, 0x3, 0x84};
+		public static Byte[] DataRgbLongclickA3 = {0x2, 0x4, 0x87};
+
+		public static Byte[] DataRgbLongclickB1 = {0x2, 0x2, 0x82};
+		public static Byte[] DataRgbLongclickB2 = {0x2, 0x3, 0x85};
+		public static Byte[] DataRgbLongclickB3 = {0x2, 0x4, 0x88};
+
+		public static Byte[] DataRgbMusic = {0x3, 0x50, 0x1};
+		public static Byte[] DataRgbMusicRecordOff = {0x3, 0x50, 0x2};
+		public static Byte[] DataRgbMusicRecordOn = {0x3, 0x50, 0x3};
+
+		public static Byte[] DataRgbRunOff = {0x2, 0x4E};
+		public static Byte[] DataRgbRunOn = {0x2, 0x4F, 0x15};
+		public static Byte[] DataRgbRunSeekbar = {0x8, 0x22};
+
+		public static Byte[] DataRgbWhiteLongclickOff = {0x2, 0x5, 0x8A};
+		public static Byte[] DataRgbWhiteLongclickOn = {0x2, 0x5, 0x8B};
+		public static Byte[] DataRgbWhiteSeekbar = {0x8, 0x4B};
+
+		public static Byte[] DataSave1 = {0x2, 0xA, 0x91};
+		public static Byte[] DataSave2 = {0x2, 0xB, 0x94};
+		public static Byte[] DataSave3 = {0x2, 0xC, 0x97};
+		public static Byte[] DataSave4 = {0x2, 0xD, 0x9A};
+		public static Byte[] DataSave5 = {0x2, 0xE, 0x9D};
+		public static Byte[] DataSave6 = {0x2, 0xF, 0xA0};
+		public static Byte[] DataSave7 = {0x2, 0x10, 0xA3};
+		public static Byte[] DataSave8 = {0x2, 0x11, 0xA6};
+		public static Byte[] DataSaveClick = {0x2, 0x14, 0xB0};
+		public static Byte[] DataSaveLongclick = {0x2, 0x14, 0xB1};
 
 		public static String AtOk = "+ok";
 		public static String AtAssist = "HF-A11ASSISTHREAD";
