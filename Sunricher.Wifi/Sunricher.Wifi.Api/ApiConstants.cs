@@ -5,9 +5,24 @@ namespace Sunricher.Wifi.Api
 	/// <summary>
 	///     Constants from Sunricher android application.
 	/// </summary>
+	/// <remarks>
+	///     These constants were discovered from TCP packets and android application code.
+	///     They are tightly coupled with Sunricher android application UI.
+	///     Tested constants are documented, purpose of others are yet to figure out.
+	/// 
+	///     Some constans are three-byte length and require no additional information to form message.
+	///     Others are two-byte length and the third byte must be provided from user.
+	/// </remarks>
 	public static class ApiConstants
 	{
+		/// <summary>
+		///     Disable all lights message.
+		/// </summary>
 		public static Byte[] DataOff = {0x2, 0x12, 0xA9};
+
+		/// <summary>
+		///     Enable all lights and restore to their previous state message.
+		/// </summary>
 		public static Byte[] DataOn = {0x2, 0x12, 0xAB};
 
 		public static Byte[] DataRoom1Off = {0x2, 0xA, 0x92};
@@ -28,6 +43,10 @@ namespace Sunricher.Wifi.Api
 		public static Byte[] DataRoom8On = {0x2, 0xA, 0xA8};
 
 		public static Byte[] DataCdwBrightnessSeekbar = {0x8, 0x33};
+
+		/// <summary>
+		///     Change brightness without changing color message.
+		/// </summary>
 		public static Byte[] DataRgbBrightnessSeekbar = {0x8, 0x23};
 
 		public static Byte[] DataCircleCdw = {0x8, 0x36};
@@ -44,9 +63,20 @@ namespace Sunricher.Wifi.Api
 		public static Byte[] DataLearn = {0x9, 0x37, 0x1};
 		public static Byte[] DataLearnRoom = {0x1, 0x1, 0x1};
 
+		/// <summary>
+		///     Set R channel message.
+		/// </summary>
 		public static Byte[] DataRgbRSeekbar = {0x8, 0x48};
-		public static Byte[] DataRgbBSeekbar = {0x8, 0x4A};
+
+		/// <summary>
+		///     Set G channel message.
+		/// </summary>
 		public static Byte[] DataRgbGSeekbar = {0x8, 0x49};
+
+		/// <summary>
+		///     Set B channel message.
+		/// </summary>
+		public static Byte[] DataRgbBSeekbar = {0x8, 0x4A};
 
 		public static Byte[] DataRgbLongclickA1 = {0x2, 0x2, 0x81};
 		public static Byte[] DataRgbLongclickA2 = {0x2, 0x3, 0x84};
@@ -82,7 +112,14 @@ namespace Sunricher.Wifi.Api
 		public static String AtOk = "+ok";
 		public static String AtAssist = "HF-A11ASSISTHREAD";
 
+		/// <summary>
+		///     TCP port listened by Sunricher device.
+		/// </summary>
 		public static Int32 TcpPort = 8899;
+		
+		/// <summary>
+		///     UDP port listened by Sunricher device.
+		/// </summary>
 		public static Int32 UdpPort = 48899;
 	}
 }

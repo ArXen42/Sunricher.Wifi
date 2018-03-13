@@ -8,6 +8,9 @@ namespace Sunricher.Wifi.Api
 	/// <summary>
 	///     Provides methods to send messages to Sunricher Wi-Fi device.
 	/// </summary>
+	/// <remarks>
+	///     This client is just an example of API usage. You can use any other way to send TCP packets.
+	/// </remarks>
 	public class SunricherTcpClient: IDisposable
 	{
 		public SunricherTcpClient(String host, Int32 port)

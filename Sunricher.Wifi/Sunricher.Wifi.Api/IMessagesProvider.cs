@@ -14,12 +14,12 @@ namespace Sunricher.Wifi.Api
 		IEnumerable<Byte> Rooms { get; set; }
 
 		/// <summary>
-		///     Returns message to power on LED.
+		///     Returns message to power on all LED.
 		/// </summary>
 		Byte[] PowerOn();
 
 		/// <summary>
-		///     Returns message to power off LED.
+		///     Returns message to power off all LED.
 		/// </summary>
 		Byte[] PowerOff();
 
