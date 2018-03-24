@@ -9,7 +9,6 @@ namespace Sunricher.Wifi.Api
 	///     These constants were discovered from TCP packets and android application code.
 	///     They are tightly coupled with Sunricher android application UI.
 	///     Tested constants are documented, purpose of others are yet to figure out.
-	/// 
 	///     Some constans are three-byte length and require no additional information to form message.
 	///     Others are two-byte length and the third byte must be provided from user.
 	/// </remarks>
@@ -116,7 +115,7 @@ namespace Sunricher.Wifi.Api
 		///     TCP port listened by Sunricher device.
 		/// </summary>
 		public static Int32 TcpPort = 8899;
-		
+
 		/// <summary>
 		///     UDP port listened by Sunricher device.
 		/// </summary>

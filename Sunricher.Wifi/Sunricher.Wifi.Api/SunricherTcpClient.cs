@@ -11,17 +11,14 @@ namespace Sunricher.Wifi.Api
 	/// <remarks>
 	///     This client is just an example of API usage. You can use any other way to send TCP packets.
 	/// </remarks>
-	public class SunricherTcpClient: IDisposable
+	public class SunricherTcpClient : IDisposable
 	{
+		private readonly TcpClient _tcpClient;
+
 		public SunricherTcpClient(String host, Int32 port)
 		{
 			_tcpClient = new TcpClient(host, port);
 			DelayAfterMessage = TimeSpan.FromMilliseconds(100);
-		}
-
-		public void Dispose()
-		{
-			_tcpClient?.Dispose();
 		}
 
 		/// <summary>
@@ -47,6 +44,9 @@ namespace Sunricher.Wifi.Api
 			await Task.Delay(DelayAfterMessage);
 		}
 
-		private readonly TcpClient _tcpClient;
+		public void Dispose()
+		{
+			_tcpClient?.Dispose();
+		}
 	}
 }
