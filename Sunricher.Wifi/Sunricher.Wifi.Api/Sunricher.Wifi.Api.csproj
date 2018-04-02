@@ -1,5 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>ArXen42</Authors>
+    <Company />
+    <Description>C# API for controlling LED devices from Sunricher (SR-2818WiN).</Description>
+    <PackageProjectUrl>https://github.com/ArXen42/Sunricher.Wifi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ArXen42/Sunricher.Wifi</RepositoryUrl>
+    <NeutralLanguage />
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/ArXen42/Sunricher.Wifi/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 </Project>
