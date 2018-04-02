@@ -19,7 +19,7 @@ namespace Sunricher.Wifi.CommandLine
 				var task = Task.Run(() =>
 				{
 					client.SendMessage(messagesProvider.PowerOn());
-					
+
 					while (true)
 					{
 						if (ct.IsCancellationRequested)

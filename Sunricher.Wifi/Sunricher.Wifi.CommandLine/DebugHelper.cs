@@ -9,7 +9,8 @@ namespace Sunricher.Wifi.CommandLine
 	internal class DebugHelper
 	{
 		/// <summary>
-		///    Used for converting constants from java code (wrote as decimal values of type signed byte) to more convenient hex representation.
+		///     Used for converting constants from java code (wrote as decimal values of type signed byte) to more convenient hex
+		///     representation.
 		/// </summary>
 		public static String GetConvertedSByteArrayString(FieldInfo fieldInfo)
 		{
@@ -34,7 +35,7 @@ namespace Sunricher.Wifi.CommandLine
 		}
 
 		/// <summary>
-		///    Generates code for all Java-style constants.
+		///     Generates code for all Java-style constants.
 		/// </summary>
 		public static void PrintConvertedConstants(Type type)
 		{

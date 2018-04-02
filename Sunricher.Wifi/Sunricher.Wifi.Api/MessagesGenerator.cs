@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Sunricher.Wifi.Api
 {
@@ -36,7 +35,7 @@ namespace Sunricher.Wifi.Api
 				if (room <= 0 || room > 8)
 					throw new ArgumentException("Room numbers must be in range 1..8.");
 
-				result = (Byte) (result | (1 << room - 1));
+				result = (Byte) (result | (1 << (room - 1)));
 			}
 
 			return result;
