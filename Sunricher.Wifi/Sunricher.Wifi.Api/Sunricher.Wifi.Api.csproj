@@ -11,5 +11,6 @@
     <PackageReleaseNotes>Initial version</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/ArXen42/Sunricher.Wifi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 </Project>
