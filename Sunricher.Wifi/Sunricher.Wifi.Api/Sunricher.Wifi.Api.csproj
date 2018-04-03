@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/ArXen42/Sunricher.Wifi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ArXen42/Sunricher.Wifi</RepositoryUrl>
     <NeutralLanguage />
-    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageReleaseNotes>Changed return type of SunricherTcpClient.SendMessageAsync from void to Task, added overload with cancellation support</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/ArXen42/Sunricher.Wifi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Version>1.0.1</Version>
