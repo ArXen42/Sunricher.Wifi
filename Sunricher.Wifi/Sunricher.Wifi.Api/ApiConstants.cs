@@ -114,11 +114,11 @@ namespace Sunricher.Wifi.Api
 		/// <summary>
 		///     TCP port listened by Sunricher device.
 		/// </summary>
-		public static Int32 TcpPort = 8899;
+		public static Int32 DefaultTcpPort = 8899;
 
 		/// <summary>
 		///     UDP port listened by Sunricher device.
 		/// </summary>
-		public static Int32 UdpPort = 48899;
+		public static Int32 DefaultUdpPort = 48899;
 	}
 }

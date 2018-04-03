@@ -12,7 +12,7 @@ namespace Sunricher.Wifi.CommandLine
 			var messagesProvider = new MessagesProvider(new MessagesGenerator());
 			var random = new Random();
 
-			using (var client = new SunricherTcpClient("192.168.12.133", ApiConstants.TcpPort))
+			using (var client = new SunricherTcpClient("192.168.12.133", ApiConstants.DefaultTcpPort))
 			{
 				var cts = new CancellationTokenSource();
 				var ct = cts.Token;
