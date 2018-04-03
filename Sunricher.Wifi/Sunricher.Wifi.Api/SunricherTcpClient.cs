@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Sunricher.Wifi.Api
 {
+	/// <inheritdoc />
 	/// <summary>
 	///     Provides methods to send messages to Sunricher Wi-Fi device.
 	/// </summary>
@@ -27,6 +28,11 @@ namespace Sunricher.Wifi.Api
 		public TimeSpan DelayAfterMessage { get; set; }
 
 		/// <summary>
+		///     Returns whether the underlying TCP client is connected.
+		/// </summary>
+		public Boolean Connected => _tcpClient.Connected;
+
+		/// <summary>
 		///     Sends given message to host using TcpClient.
 		/// </summary>
 		public void SendMessage(Byte[] message)
@@ -36,9 +42,18 @@ namespace Sunricher.Wifi.Api
 		}
 
 		/// <summary>
+		///     Sends given message to host asynchronously using TcpClient with given cancellation token.
+		/// </summary>
+		public async Task SendMessageAsync(Byte[] message, CancellationToken cancellationToken)
+		{
+			await _tcpClient.GetStream().WriteAsync(message, 0, message.Length, cancellationToken);
+			await Task.Delay(DelayAfterMessage, cancellationToken);
+		}
+
+		/// <summary>
 		///     Sends given message to host asynchronously using TcpClient.
 		/// </summary>
-		public async void SendMessageAsync(Byte[] message)
+		public async Task SendMessageAsync(Byte[] message)
 		{
 			await _tcpClient.GetStream().WriteAsync(message, 0, message.Length);
 			await Task.Delay(DelayAfterMessage);
