@@ -108,17 +108,17 @@ namespace Sunricher.Wifi.Api
 		public static Byte[] DataSaveClick = {0x2, 0x14, 0xB0};
 		public static Byte[] DataSaveLongclick = {0x2, 0x14, 0xB1};
 
-		public static String AtOk = "+ok";
-		public static String AtAssist = "HF-A11ASSISTHREAD";
+		public const String AtOk = "+ok";
+		public const String AtAssist = "HF-A11ASSISTHREAD";
 
 		/// <summary>
 		///     TCP port listened by Sunricher device.
 		/// </summary>
-		public static Int32 DefaultTcpPort = 8899;
+		public const Int32 DefaultTcpPort = 8899;
 
 		/// <summary>
 		///     UDP port listened by Sunricher device.
 		/// </summary>
-		public static Int32 DefaultUdpPort = 48899;
+		public const Int32 DefaultUdpPort = 48899;
 	}
 }
