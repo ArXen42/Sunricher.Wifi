@@ -8,14 +8,11 @@
     <PackageProjectUrl>https://github.com/ArXen42/Sunricher.Wifi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ArXen42/Sunricher.Wifi</RepositoryUrl>
     <NeutralLanguage />
-    <PackageReleaseNotes>Added white channel. 
-Added synchronization (FIFO scheduling) to SunricherTcpClient, it is now thread-safe. 
-Refactored names in IMessagesProvider. 
-Strings and Ints constants in ApiConstants were made actually constants.</PackageReleaseNotes>
+    <PackageReleaseNotes>SendMessageAsync won't throw if cancelled normally.</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/ArXen42/Sunricher.Wifi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.3</Version>
-    <AssemblyVersion>1.0.3.0</AssemblyVersion>
-    <FileVersion>1.0.3.0</FileVersion>
+      <Version>1.0.4</Version>
+      <AssemblyVersion>1.0.4.0</AssemblyVersion>
+      <FileVersion>1.0.4.0</FileVersion>
   </PropertyGroup>
 </Project>

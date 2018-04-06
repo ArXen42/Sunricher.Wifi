@@ -69,12 +69,13 @@ namespace Sunricher.Wifi.Api
 		///     Sunricher device does not accept messages with interval less than ~100ms, so this method will not run in parallel.
 		///     Internally uses queue to send one message at time.
 		/// </remarks>
+		/// <exception cref="OperationCanceledException">Operation was cancelled during connection to device.</exception>
 		public async Task SendMessageAsync(Byte[] message, CancellationToken cancellationToken)
 		{
 			void SendMessageAction()
 			{
 				if (cancellationToken.IsCancellationRequested)
-					return;
+					return; //Return if already cancelled
 
 				var eventArgs = new LedMessageEventArgs(message);
 				SendingMessage?.Invoke(this, eventArgs);
@@ -82,16 +83,20 @@ namespace Sunricher.Wifi.Api
 				if (_tcpClient == null)
 				{
 					_tcpClient = new TcpClient();
-					_tcpClient.ConnectAsync(_host, _port).Wait(cancellationToken);
+					_tcpClient.ConnectAsync(_host, _port).Wait(cancellationToken); //Will throw if cancelled during connection
 				}
 
-				_tcpClient
+				var writeTask = _tcpClient
 					.GetStream()
-					.WriteAsync(message, 0, message.Length, cancellationToken)
-					.Wait(cancellationToken);
+					.WriteAsync(message, 0, message.Length, cancellationToken);
 
+				// ReSharper disable MethodSupportsCancellation
+				writeTask.Wait();
 				MessageSent?.Invoke(this, eventArgs);
-				Task.Delay(DelayAfterMessage, cancellationToken).Wait(cancellationToken);
+
+				if (writeTask.Status == TaskStatus.RanToCompletion)
+					Task.Delay(DelayAfterMessage).Wait();
+				// ReSharper restore MethodSupportsCancellation
 			}
 
 			await _serialQueue.Enqueue(SendMessageAction);
