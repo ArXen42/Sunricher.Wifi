@@ -108,7 +108,7 @@ namespace Sunricher.Wifi.Api
 
 		public static Byte[] DataRgbWhiteLongclickOff = {0x2, 0x5, 0x8A};
 		public static Byte[] DataRgbWhiteLongclickOn = {0x2, 0x5, 0x8B};
-		
+
 		/// <summary>
 		///     Set White channel message.
 		/// </summary>

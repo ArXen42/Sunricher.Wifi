@@ -19,6 +19,8 @@ namespace Sunricher.Wifi.CommandLine
 				//Just an example of how to use API, pretty bad example
 				using (var client = new SunricherTcpClient("192.168.12.194", ApiConstants.DefaultTcpPort))
 				{
+					client.MessageSent += (s, e) => Console.WriteLine($"Message sent: {Convert.ToBase64String(e.Message)}");
+
 					var cts = new CancellationTokenSource();
 					var ct = cts.Token;
 					var task = Task.Run(() =>

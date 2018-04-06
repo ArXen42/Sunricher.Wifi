@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 namespace Sunricher.Wifi.Api
 {
 	/// <summary>
-	///    FIFO tasks serial queue. Enqueued task will be processed one at time.
-	///    From <a href="https://github.com/Gentlee/SerialQueue">https://github.com/Gentlee/SerialQueue</a>.
+	///     FIFO tasks serial queue. Enqueued task will be processed one at time.
+	///     From <a href="https://github.com/Gentlee/SerialQueue">https://github.com/Gentlee/SerialQueue</a>.
 	/// </summary>
 	internal class SerialQueue
 	{

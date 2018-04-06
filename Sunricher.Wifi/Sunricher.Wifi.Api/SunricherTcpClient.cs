@@ -48,6 +48,16 @@ namespace Sunricher.Wifi.Api
 		}
 
 		/// <summary>
+		///     Occurs when starting sending message.
+		/// </summary>
+		public event EventHandler<LedMessageEventArgs> SendingMessage;
+
+		/// <summary>
+		///     Occurs when message is sent.
+		/// </summary>
+		public event EventHandler<LedMessageEventArgs> MessageSent;
+
+		/// <summary>
 		///     Delay after message is sent. Default is 100 milliseconds.
 		/// </summary>
 		public TimeSpan DelayAfterMessage { get; set; } = TimeSpan.FromMilliseconds(100);
@@ -63,8 +73,12 @@ namespace Sunricher.Wifi.Api
 		{
 			void SendMessageAction()
 			{
-				DateTime dateTime = DateTime.Now;
-				Console.WriteLine($"Sending {Convert.ToBase64String(message)} {dateTime.Second} {dateTime.Millisecond}");
+				if (cancellationToken.IsCancellationRequested)
+					return;
+
+				var eventArgs = new LedMessageEventArgs(message);
+				SendingMessage?.Invoke(this, eventArgs);
+
 				if (_tcpClient == null)
 				{
 					_tcpClient = new TcpClient();
@@ -75,6 +89,8 @@ namespace Sunricher.Wifi.Api
 					.GetStream()
 					.WriteAsync(message, 0, message.Length, cancellationToken)
 					.Wait(cancellationToken);
+
+				MessageSent?.Invoke(this, eventArgs);
 				Task.Delay(DelayAfterMessage, cancellationToken).Wait(cancellationToken);
 			}
 
@@ -92,6 +108,16 @@ namespace Sunricher.Wifi.Api
 		public void Dispose()
 		{
 			_tcpClient?.Dispose();
+		}
+	}
+
+	public class LedMessageEventArgs : EventArgs
+	{
+		public readonly Byte[] Message;
+
+		public LedMessageEventArgs(Byte[] message)
+		{
+			Message = message;
 		}
 	}
 }
