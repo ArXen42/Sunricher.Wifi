@@ -8,11 +8,14 @@
     <PackageProjectUrl>https://github.com/ArXen42/Sunricher.Wifi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ArXen42/Sunricher.Wifi</RepositoryUrl>
     <NeutralLanguage />
-    <PackageReleaseNotes>Reworked SunricherTcpClient for better asynchrony handling. Removed blocking I/O operation from constructor (tcp connection), it will happen on first SendMessage call.
-          Added constructor with custom TcpClient argument.
-      </PackageReleaseNotes>
+    <PackageReleaseNotes>Added white channel. 
+Added synchronization (FIFO scheduling) to SunricherTcpClient, it is now thread-safe. 
+Refactored names in IMessagesProvider. 
+Strings and Ints constants in ApiConstants were made actually constants.</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/ArXen42/Sunricher.Wifi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
   </PropertyGroup>
 </Project>
