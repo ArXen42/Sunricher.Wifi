@@ -34,6 +34,7 @@ namespace Sunricher.Wifi.CommandLine
 								client.SendMessageAsync(messagesProvider.SetRed((Byte) random.Next(0, 100)), ct).Wait(ct);
 								client.SendMessageAsync(messagesProvider.SetGreen((Byte) random.Next(0, 100)), ct).Wait(ct);
 								client.SendMessageAsync(messagesProvider.SetBlue((Byte) random.Next(0, 100)), ct).Wait(ct);
+								client.SendMessageAsync(messagesProvider.SetWhite((Byte) random.Next(0, 100)), ct).Wait(ct);
 								client.SendMessageAsync(messagesProvider.SetBrightness((Byte) random.Next(0, 255)), ct).Wait(ct);
 								Thread.Sleep(1000);
 							}

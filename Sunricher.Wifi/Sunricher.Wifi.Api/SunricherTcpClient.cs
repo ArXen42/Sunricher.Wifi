@@ -50,7 +50,7 @@ namespace Sunricher.Wifi.Api
 		/// <summary>
 		///     Delay after message is sent. Default is 100 milliseconds.
 		/// </summary>
-		public TimeSpan DelayAfterMessage { get; set; } = TimeSpan.FromMilliseconds(1000);
+		public TimeSpan DelayAfterMessage { get; set; } = TimeSpan.FromMilliseconds(100);
 
 		/// <summary>
 		///     Sends given message to host asynchronously using TcpClient with given cancellation token.
