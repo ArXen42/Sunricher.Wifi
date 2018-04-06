@@ -16,6 +16,7 @@ namespace Sunricher.Wifi.Api
 	{
 		private readonly String _host;
 		private readonly Int32 _port;
+		private readonly SerialQueue _serialQueue = new SerialQueue();
 		private TcpClient _tcpClient;
 
 		/// <summary>
@@ -49,36 +50,35 @@ namespace Sunricher.Wifi.Api
 		/// <summary>
 		///     Delay after message is sent. Default is 100 milliseconds.
 		/// </summary>
-		public TimeSpan DelayAfterMessage { get; set; } = TimeSpan.FromMilliseconds(100);
-
-		/// <summary>
-		///     Sends given message to host using TcpClient.
-		/// </summary>
-		public void SendMessage(Byte[] message)
-		{
-			if (_tcpClient == null)
-				_tcpClient = new TcpClient(_host, _port);
-
-			if (!_tcpClient.Connected)
-				_tcpClient.Connect(_host, _port);
-
-			_tcpClient.GetStream().Write(message, 0, message.Length);
-			Thread.Sleep(DelayAfterMessage);
-		}
+		public TimeSpan DelayAfterMessage { get; set; } = TimeSpan.FromMilliseconds(1000);
 
 		/// <summary>
 		///     Sends given message to host asynchronously using TcpClient with given cancellation token.
 		/// </summary>
+		/// <remarks>
+		///     Sunricher device does not accept messages with interval less than ~100ms, so this method will not run in parallel.
+		///     Internally uses queue to send one message at time.
+		/// </remarks>
 		public async Task SendMessageAsync(Byte[] message, CancellationToken cancellationToken)
 		{
-			if (_tcpClient == null)
+			void SendMessageAction()
 			{
-				_tcpClient = new TcpClient();
-				await _tcpClient.ConnectAsync(_host, _port);
+				DateTime dateTime = DateTime.Now;
+				Console.WriteLine($"Sending {Convert.ToBase64String(message)} {dateTime.Second} {dateTime.Millisecond}");
+				if (_tcpClient == null)
+				{
+					_tcpClient = new TcpClient();
+					_tcpClient.ConnectAsync(_host, _port).Wait(cancellationToken);
+				}
+
+				_tcpClient
+					.GetStream()
+					.WriteAsync(message, 0, message.Length, cancellationToken)
+					.Wait(cancellationToken);
+				Task.Delay(DelayAfterMessage, cancellationToken).Wait(cancellationToken);
 			}
 
-			await _tcpClient.GetStream().WriteAsync(message, 0, message.Length, cancellationToken);
-			await Task.Delay(DelayAfterMessage, cancellationToken);
+			await _serialQueue.Enqueue(SendMessageAction);
 		}
 
 		/// <summary>

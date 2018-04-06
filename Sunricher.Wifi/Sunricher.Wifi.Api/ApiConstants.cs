@@ -14,6 +14,19 @@ namespace Sunricher.Wifi.Api
 	/// </remarks>
 	public static class ApiConstants
 	{
+		public const String AtOk = "+ok";
+		public const String AtAssist = "HF-A11ASSISTHREAD";
+
+		/// <summary>
+		///     TCP port listened by Sunricher device.
+		/// </summary>
+		public const Int32 DefaultTcpPort = 8899;
+
+		/// <summary>
+		///     UDP port listened by Sunricher device.
+		/// </summary>
+		public const Int32 DefaultUdpPort = 48899;
+
 		/// <summary>
 		///     Disable all lights message.
 		/// </summary>
@@ -107,18 +120,5 @@ namespace Sunricher.Wifi.Api
 		public static Byte[] DataSave8 = {0x2, 0x11, 0xA6};
 		public static Byte[] DataSaveClick = {0x2, 0x14, 0xB0};
 		public static Byte[] DataSaveLongclick = {0x2, 0x14, 0xB1};
-
-		public const String AtOk = "+ok";
-		public const String AtAssist = "HF-A11ASSISTHREAD";
-
-		/// <summary>
-		///     TCP port listened by Sunricher device.
-		/// </summary>
-		public const Int32 DefaultTcpPort = 8899;
-
-		/// <summary>
-		///     UDP port listened by Sunricher device.
-		/// </summary>
-		public const Int32 DefaultUdpPort = 48899;
 	}
 }
