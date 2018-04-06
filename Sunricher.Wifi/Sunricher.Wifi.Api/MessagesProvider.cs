@@ -354,14 +354,6 @@ namespace Sunricher.Wifi.Api
 		/// <summary>
 		///     Not tested yet.
 		/// </summary>
-		public Byte[] ApiRgbWhiteSeekbar(Byte value)
-		{
-			return CreateMessageFromTwoByteConstant(ApiConstants.DataRgbWhiteSeekbar, value);
-		}
-
-		/// <summary>
-		///     Not tested yet.
-		/// </summary>
 		public Byte[] ApiSave1()
 		{
 			return CreateMessageFromThreeByteConstant(ApiConstants.DataSave1);
@@ -449,26 +441,30 @@ namespace Sunricher.Wifi.Api
 			return CreateMessageFromThreeByteConstant(ApiConstants.DataOff);
 		}
 
-		public Byte[] SetR(Byte value)
+		public Byte[] SetRed(Byte value)
 		{
 			return CreateMessageFromTwoByteConstant(ApiConstants.DataRgbRSeekbar, value);
 		}
 
-		public Byte[] SetG(Byte value)
+		public Byte[] SetGreen(Byte value)
 		{
 			return CreateMessageFromTwoByteConstant(ApiConstants.DataRgbGSeekbar, value);
 		}
 
-		public Byte[] SetB(Byte value)
+		public Byte[] SetBlue(Byte value)
 		{
 			return CreateMessageFromTwoByteConstant(ApiConstants.DataRgbBSeekbar, value);
+		}
+
+		public Byte[] SetWhite(Byte value)
+		{
+			return CreateMessageFromTwoByteConstant(ApiConstants.DataRgbWhiteSeekbar, value);
 		}
 
 		public Byte[] SetBrightness(Byte value)
 		{
 			return CreateMessageFromTwoByteConstant(ApiConstants.DataRgbBrightnessSeekbar, value);
 		}
-
 
 		private Byte[] CreateMessageFromThreeByteConstant(Byte[] data)
 		{

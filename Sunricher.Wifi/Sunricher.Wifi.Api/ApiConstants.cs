@@ -76,17 +76,17 @@ namespace Sunricher.Wifi.Api
 		public static Byte[] DataLearnRoom = {0x1, 0x1, 0x1};
 
 		/// <summary>
-		///     Set R channel message.
+		///     Set Red channel message.
 		/// </summary>
 		public static Byte[] DataRgbRSeekbar = {0x8, 0x48};
 
 		/// <summary>
-		///     Set G channel message.
+		///     Set Green channel message.
 		/// </summary>
 		public static Byte[] DataRgbGSeekbar = {0x8, 0x49};
 
 		/// <summary>
-		///     Set B channel message.
+		///     Set Blue channel message.
 		/// </summary>
 		public static Byte[] DataRgbBSeekbar = {0x8, 0x4A};
 
@@ -108,6 +108,10 @@ namespace Sunricher.Wifi.Api
 
 		public static Byte[] DataRgbWhiteLongclickOff = {0x2, 0x5, 0x8A};
 		public static Byte[] DataRgbWhiteLongclickOn = {0x2, 0x5, 0x8B};
+		
+		/// <summary>
+		///     Set White channel message.
+		/// </summary>
 		public static Byte[] DataRgbWhiteSeekbar = {0x8, 0x4B};
 
 		public static Byte[] DataSave1 = {0x2, 0xA, 0x91};

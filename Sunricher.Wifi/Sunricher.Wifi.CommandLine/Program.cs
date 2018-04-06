@@ -31,9 +31,9 @@ namespace Sunricher.Wifi.CommandLine
 								if (ct.IsCancellationRequested)
 									break;
 
-								client.SendMessageAsync(messagesProvider.SetR((Byte) random.Next(0, 100)), ct).Wait(ct);
-								client.SendMessageAsync(messagesProvider.SetG((Byte) random.Next(0, 100)), ct).Wait(ct);
-								client.SendMessageAsync(messagesProvider.SetB((Byte) random.Next(0, 100)), ct).Wait(ct);
+								client.SendMessageAsync(messagesProvider.SetRed((Byte) random.Next(0, 100)), ct).Wait(ct);
+								client.SendMessageAsync(messagesProvider.SetGreen((Byte) random.Next(0, 100)), ct).Wait(ct);
+								client.SendMessageAsync(messagesProvider.SetBlue((Byte) random.Next(0, 100)), ct).Wait(ct);
 								client.SendMessageAsync(messagesProvider.SetBrightness((Byte) random.Next(0, 255)), ct).Wait(ct);
 								Thread.Sleep(1000);
 							}

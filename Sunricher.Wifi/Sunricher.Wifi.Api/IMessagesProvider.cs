@@ -26,17 +26,22 @@ namespace Sunricher.Wifi.Api
 		/// <summary>
 		///     Returns message to set LED red channel.
 		/// </summary>
-		Byte[] SetR(Byte value);
+		Byte[] SetRed(Byte value);
 
 		/// <summary>
 		///     Returns message to set LED green channel;
 		/// </summary>
-		Byte[] SetG(Byte value);
+		Byte[] SetGreen(Byte value);
 
 		/// <summary>
 		///     Returns message to set LED blue channel
 		/// </summary>
-		Byte[] SetB(Byte value);
+		Byte[] SetBlue(Byte value);
+
+		/// <summary>
+		///     Returns message to set LED white channel
+		/// </summary>
+		Byte[] SetWhite(Byte value);
 
 		/// <summary>
 		///     Returns message to set LED brightness without changing color.
