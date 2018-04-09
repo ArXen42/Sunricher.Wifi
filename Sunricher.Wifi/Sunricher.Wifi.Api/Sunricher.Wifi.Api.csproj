@@ -8,11 +8,11 @@
     <PackageProjectUrl>https://github.com/ArXen42/Sunricher.Wifi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ArXen42/Sunricher.Wifi</RepositoryUrl>
     <NeutralLanguage />
-    <PackageReleaseNotes>SendMessageAsync won't throw if cancelled normally.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added Byte representation of Rooms to IMessagesProvider, tests for it.</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/ArXen42/Sunricher.Wifi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-      <Version>1.0.4</Version>
-      <AssemblyVersion>1.0.4.0</AssemblyVersion>
-      <FileVersion>1.0.4.0</FileVersion>
+      <Version>1.0.5</Version>
+      <AssemblyVersion>1.0.5.0</AssemblyVersion>
+      <FileVersion>1.0.5.0</FileVersion>
   </PropertyGroup>
 </Project>
