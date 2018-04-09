@@ -14,6 +14,11 @@ namespace Sunricher.Wifi.Api
 		IEnumerable<Byte> Rooms { get; set; }
 
 		/// <summary>
+		///     Byte representation of <see cref="Rooms"/> property.
+		/// </summary>
+		Byte RoomsByte { get; set; }
+
+		/// <summary>
 		///     Returns message to power on all LED.
 		/// </summary>
 		Byte[] PowerOn();

@@ -4,8 +4,9 @@ using System.Linq;
 
 namespace Sunricher.Wifi.Api
 {
+	/// <inheritdoc />
 	/// <summary>
-	///     Default implementation of <see cref="IMessagesProvider" />.
+	///     Default implementation of <see cref="T:Sunricher.Wifi.Api.IMessagesProvider" />.
 	///     Also provides untested Sunricher API messages.
 	/// </summary>
 	public class MessagesProvider : IMessagesProvider
@@ -20,8 +21,13 @@ namespace Sunricher.Wifi.Api
 
 		public static IEnumerable<Byte> EmptyRooms => new Byte[] { };
 
-		public IEnumerable<Byte> Rooms { get; set; }
+		public IEnumerable<Byte> Rooms
+		{
+			get => _messagesGenerator.GetRoomsFromByte(RoomsByte);
+			set => RoomsByte = _messagesGenerator.GetRoomsByte(value);
+		}
 
+		public Byte RoomsByte { get; set; }
 
 		/// <summary>
 		///     Not tested yet.

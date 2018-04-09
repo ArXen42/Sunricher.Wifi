@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunricher.Wifi.Api", "Sunri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunricher.Wifi.CommandLine", "Sunricher.Wifi.CommandLine\Sunricher.Wifi.CommandLine.csproj", "{8F5F6305-5B6E-41D9-A705-39ED48297336}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunricher.Wifi.Api.Tests", "Sunricher.Wifi.Api.Tests\Sunricher.Wifi.Api.Tests.csproj", "{A3800479-7D53-47AD-A5F8-6D9DF4A31573}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{8F5F6305-5B6E-41D9-A705-39ED48297336}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5F6305-5B6E-41D9-A705-39ED48297336}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5F6305-5B6E-41D9-A705-39ED48297336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3800479-7D53-47AD-A5F8-6D9DF4A31573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3800479-7D53-47AD-A5F8-6D9DF4A31573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3800479-7D53-47AD-A5F8-6D9DF4A31573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3800479-7D53-47AD-A5F8-6D9DF4A31573}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

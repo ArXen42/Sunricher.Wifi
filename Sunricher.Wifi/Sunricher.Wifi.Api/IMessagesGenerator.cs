@@ -27,6 +27,11 @@ namespace Sunricher.Wifi.Api
 		/// <summary>
 		///     Encodes room numbers into byte value. Up to 8 rooms numbered from 1 to 8 are supported in default implementation.
 		/// </summary>
-		Byte GetRoomByte(IEnumerable<Byte> rooms);
+		Byte GetRoomsByte(IEnumerable<Byte> rooms);
+
+		/// <summary>
+		///     Decodes room numbers from byte value. Each digit encodes one room in default implementation.
+		/// </summary>
+		IEnumerable<Byte> GetRoomsFromByte(Byte roomsByte);
 	}
 }

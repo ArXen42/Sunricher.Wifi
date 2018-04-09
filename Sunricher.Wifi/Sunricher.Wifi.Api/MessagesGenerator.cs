@@ -16,7 +16,7 @@ namespace Sunricher.Wifi.Api
 			result[2] = 0x00;
 			result[3] = 0x00;
 			result[4] = 0x00;
-			result[5] = GetRoomByte(rooms);
+			result[5] = GetRoomsByte(rooms);
 			result[6] = category;
 			result[7] = channel;
 			result[8] = value;
@@ -27,7 +27,7 @@ namespace Sunricher.Wifi.Api
 			return result;
 		}
 
-		public Byte GetRoomByte(IEnumerable<Byte> rooms)
+		public Byte GetRoomsByte(IEnumerable<Byte> rooms)
 		{
 			Byte result = 0;
 			foreach (Byte room in rooms)
@@ -39,6 +39,16 @@ namespace Sunricher.Wifi.Api
 			}
 
 			return result;
+		}
+
+		public IEnumerable<Byte> GetRoomsFromByte(Byte roomsByte)
+		{
+			var rooms = new List<Byte>();
+			for (Byte roomNumber = 0; roomNumber < 8; roomNumber++)
+				if ((roomsByte & (1 << roomNumber)) > 0)
+					rooms.Add((Byte) (roomNumber + 1));
+
+			return rooms;
 		}
 	}
 }

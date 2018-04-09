@@ -11,7 +11,8 @@ namespace Sunricher.Wifi.CommandLine
 	{
 		private static void Main(String[] args)
 		{
-			var messagesProvider = new MessagesProvider(new MessagesGenerator());
+			var messagesGenerator = new MessagesGenerator();
+			var messagesProvider = new MessagesProvider(messagesGenerator);
 			var random = new Random();
 
 			//Just an example of how to use API, pretty bad example
